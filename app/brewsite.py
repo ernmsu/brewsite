@@ -1,10 +1,25 @@
 from flask import Flask
+from flask import render_template as rt
 
 app = Flask(__name__)
 
 @app.route("/")
-def hello_world():
-    return "<p>Hello, ICT 362 World!</p>"
+@app.route("/home")
+def home():
+    return rt("home.html", user = "James Smith")
 
-if __name__ == "__main__":
+@app.route("/breweries")
+def hello_world():
+    return rt("breweries.html", user = "James Smith")
+
+@app.route("/beer_types")
+def breweries():
+    return rt("beer_types.html", user = "James Smith")
+
+@app.route("/about")
+def beer_types():
+    return rt("about.html", user = "James Smith")
+
+
+if __name__== "__main__":
 	app.run(debug=True)
